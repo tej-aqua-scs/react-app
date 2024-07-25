@@ -15,7 +15,7 @@ pipeline {
         ]){
           sh '''
             export TRIVY_RUN_AS_PLUGIN=aqua
-            trivy fs --scanners misconfig,vuln,secret --sast .
+            trivy fs --scanners misconfig,vuln,secret --sast --cache-dir /.cache .
             # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
             # To enable SAST scanning, add: --sast
             # To enable reachability scanning, add: --reachability
