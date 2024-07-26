@@ -5,7 +5,6 @@ pipeline {
       agent {
         docker {
           image 'aquasec/aqua-scanner'
-          label 'dind'
         }
       }
       steps {
