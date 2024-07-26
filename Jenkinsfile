@@ -14,11 +14,11 @@ pipeline {
           string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
         ]){
           sh '''
-            mkdir -p vulnerability-reports
+            mkdir -p /tmp/vulnerability-reports
             export TRIVY_RUN_AS_PLUGIN=aqua
             export AQUA_URL=https://api.supply-chain.cloud.aquasec.com
             export CSPM_URL=https://api.cloudsploit.com
-            trivy --cache-dir /tmp/trivy fs -f json -o vulnerability-reports/trivy-fs.json --scanners misconfig,vuln,secret .
+            trivy --cache-dir /tmp/trivy fs -f json -o /tmp/vulnerability-reports/trivy-fs.json --scanners misconfig,vuln,secret .
             # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
             # To enable SAST scanning, add: --sast
             # To enable reachability scanning, add: --reachability
