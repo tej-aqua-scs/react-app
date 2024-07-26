@@ -19,7 +19,7 @@ pipeline {
             export CSPM_URL=https://api.cloudsploit.com
             export IGNORE_PANIC="true"
             ls -al
-            trivy --cache-dir /home/ubuntu/trivy/trivy-cache fs --scanners misconfig,vuln,secret .
+            sudo trivy --cache-dir /home/ubuntu/trivy/trivy-cache fs --scanners misconfig,vuln,secret .
             # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
             # To enable SAST scanning, add: --sast
             # To enable reachability scanning, add: --reachability
