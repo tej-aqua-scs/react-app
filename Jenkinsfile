@@ -17,12 +17,12 @@ pipeline {
             export TRIVY_RUN_AS_PLUGIN=aqua
             export AQUA_URL=https://api.supply-chain.cloud.aquasec.com
             export CSPM_URL=https://api.cloudsploit.com
-            trivy --cache-dir /tmp/trivy fs --scanners misconfig,vuln,secret --sast .
-            # To customize which severities to scan for, add the following flag: --severity UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
-            # To enable SAST scanning, add: --sast
-            # To enable reachability scanning, add: --reachability
-            # To enable npm/dotnet/gradle non-lock file scanning, add: --package-json / --dotnet-proj / --gradle
-            # For http/https proxy configuration add env vars: HTTP_PROXY/HTTPS_PROXY, CA-CRET (path to CA certificate)
+            export TRIVY_USERNAME=teja.chittamuri@aquasec.com
+            export TRIVY_PASSWORD=Jesus@saves2001
+            export TRIVY_DB_REPOSITORY="registry.aquasec.com/trivy-db:2"
+            export TRIVY_JAVA_DB_REPOSITORY="registry.aquasec.com/trivy-java-db:1"
+            export TRIVY_CHECKS_BUNDLE_REPOSITORY="registry.aquasec.com/trivy-checks:1"
+            trivy --cache-dir /tmp/trivy fs --scanners misconfig,vuln,secret --sast TRIVY_DB_REPOSITORY="registry.aquasec.com/trivy-db:2 TRIVY_CHECKS_BUNDLE_REPOSITORY="registry.aquasec.com/trivy-checks:1 .
           '''
         }
       }
