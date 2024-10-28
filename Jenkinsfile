@@ -22,7 +22,7 @@ pipeline {
             export TRIVY_DB_REPOSITORY="registry.aquasec.com/trivy-db:2"
             export TRIVY_JAVA_DB_REPOSITORY="registry.aquasec.com/trivy-java-db:1"
             export TRIVY_CHECKS_BUNDLE_REPOSITORY="registry.aquasec.com/trivy-checks:1"
-            trivy --cache-dir /tmp/trivy fs --scanners misconfig,vuln,secret --sast TRIVY_DB_REPOSITORY="registry.aquasec.com/trivy-db:2 TRIVY_CHECKS_BUNDLE_REPOSITORY="registry.aquasec.com/trivy-checks:1 .
+            TRIVY_USERNAME=$TRIVY_USERNAME TRIVY_PASSOWRD=$TRIVY_PASSWORD trivy --cache-dir /tmp/trivy fs --scanners misconfig,vuln,secret --sast TRIVY_DB_REPOSITORY="registry.aquasec.com/trivy-db:2 TRIVY_CHECKS_BUNDLE_REPOSITORY="registry.aquasec.com/trivy-checks:1 .
           '''
         }
       }
