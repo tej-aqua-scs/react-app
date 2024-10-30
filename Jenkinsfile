@@ -11,8 +11,8 @@ pipeline {
         withCredentials([
           string(credentialsId: 'AQUA_KEY', variable: 'AQUA_KEY'),
           string(credentialsId: 'AQUA_SECRET', variable: 'AQUA_SECRET'),
-          string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN')
-          string(credentialsId: 'TRIVY_USERNAME', variable: 'TRIVY_USERNAME')
+          string(credentialsId: 'GITHUB_TOKEN', variable: 'GITHUB_TOKEN'),
+          string(credentialsId: 'TRIVY_USERNAME', variable: 'TRIVY_USERNAME'),
           string(credentialsId: 'TRIVY_PASSWORD', variable: 'TRIVY_PASSWORD')
         ]){
           sh '''
