@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 # college-dashboard
-test
+test2
 
 for testing sastd
 
